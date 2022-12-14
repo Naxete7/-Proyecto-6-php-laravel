@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('party', function (Blueprint $table) {
             $table->id();
             $table->string('title',100);
+
+            $table->unsignedBigInteger('game');
+            $table->foreign('game')->references('id')->on('game');
             $table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('party_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('party_id');
+            $table->unsignedBigInteger('player');
+            $table->unsignedBigInteger('party');
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('party_id')->references('id')->on('party')->onDelete('cascade');
+            $table->foreign('player')->references('id')->on('users');
+            $table->foreign('party')->references('id')->on('party');
             $table->timestamps();
         });
     }
