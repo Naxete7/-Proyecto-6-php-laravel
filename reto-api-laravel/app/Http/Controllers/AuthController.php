@@ -58,22 +58,21 @@ class AuthController extends Controller
 
 public function logout(Request $request)
 {
-    $this->validate($request, [
-        'token=>required'
-    ]);
-    try{
-        JWTAuth::invalidated($request->token);
-        return response()->json([
-            'succes'=>true,
-            'mesaage'=>'User logged out succesfully'
-        ]);
-            }catch (\Exception $exception){
-                return response()-> json([
-                    'succes'=>false,
-                    'message'=>'Sorry, the user cannot be logged out'
 
-                ], Response::HTTP_INTERNAL_SERVER_ERROR);
-            }
+        try {
+            auth()->logout();
+            return response()->json([
+                'success' => true,
+                'message' => 'User logged out successfully'
+            ]);
+        } catch (\Throwable $th) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, the user cannot be logged out '
+            ], 500);
+        }
+    
+
     }
 
 
