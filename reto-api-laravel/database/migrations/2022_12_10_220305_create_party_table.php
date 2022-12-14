@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('party', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title',100);
             $table->timestamps();
         });
     }
