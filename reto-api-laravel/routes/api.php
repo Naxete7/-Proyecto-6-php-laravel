@@ -41,7 +41,6 @@ Route::group([
 
 
 
-
 //GAME
 
 Route::post('/game', [GameController::class, 'createAGame']);

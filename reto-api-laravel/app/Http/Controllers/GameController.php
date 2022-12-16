@@ -89,7 +89,7 @@ class GameController extends Controller
             
             return response([
                 'success' => true,
-                'message' => 'Game modified successfully.'
+                'message' => 'Game update successfully.'
             ], 200);
     }catch(\Throwable $th){
 
