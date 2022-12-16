@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('message', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('from');
-            $table->unsignedBigInteger('party');
+            $table->unsignedBigInteger('userId');
+            $table->unsignedBigInteger('parties');
             
-            $table->foreign('from')->references('id')->on('users');
-            $table->foreign('party')->references('id')->on('party');
+            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('parties')->references('id')->on('parties');
             $table->text('message');
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('message');
+        Schema::dropIfExists('messages');
     }
 };

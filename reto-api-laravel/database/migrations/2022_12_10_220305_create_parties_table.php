@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('game', function (Blueprint $table) {
+        Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('createdBy');
-            $table->foreign('createdBy')->references('id')->on('users');
-            $table->string('name',100);
+            $table->string('title',100);
+
+            $table->unsignedBigInteger('gameId');
+            $table->foreign('gameId')->references('id')->on('games');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('game');
+        Schema::dropIfExists('parties');
     }
 };
