@@ -5,8 +5,8 @@
 
 <!-- Status -->
 
-<!-- <h4 align="center"> 
-	🚧  Reto Api Laravel 🚀 Under construction...  🚧
+ <h4 align="center"> 
+	🚧  Reto Api Laravel 🚀 
 </h4> 
 
 <hr> -->
