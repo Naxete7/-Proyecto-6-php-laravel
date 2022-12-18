@@ -109,14 +109,13 @@ class GameController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Game deleted',
-                'data' => $game
+                
             ]);
         } catch (\Throwable $th) {
-            Log::error("Error retrieving game: " . $th->getMessage());
 
             return response()->json([
                 'success' => true,
-                'message' => 'Could not retrieve game'
+                'message' => 'Could not delete game'
             ], 500);
         }
     }

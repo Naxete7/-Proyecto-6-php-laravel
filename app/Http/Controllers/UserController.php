@@ -34,58 +34,24 @@ class UserController extends Controller
 
     // Delete User
 
-    public function deleteUser(Request $request)
+    public function deleteUser(Request $request, $id)
     {
         try {
+               $user = User::where('id', $id)->delete();
+            return response()->json([
+                'success' => true,
+                'message' => 'User deleted',
 
-            $user = $request->input("id");
-            $user->delete();
-
+            //$user = $request->input("id");
+            //$user->delete();
+            ]);
         } catch (\Throwable $th) {
             return response([
                 'success' => false,
-                'message' => "Trying to delete a User but something went wrong"
+                'message' => "Trying to delete a User but something went wrong" . $th->getMessage()
             ], 500);
         }
     }
-
-    //update users
-
-    //public function updateUser(Request $request,$id)
-    //{
-
-    //    try {
-
-    //        $user = auth()->user()->id;
-    //        $newName=$request->input('name');
-
-    //        $updateUser = User::where('name')
-    //        ->where('id', $id)
-    //            ->update([
-    //            'name' => $newName,
-    //            ]);
-
-
-    //        if (!$updateUser) {
-    //            return response()->json([
-    //                "success" => true,
-    //                "message" => "User doesnt exists"
-    //            ], 404);
-
-    //        return response([
-    //            'succes' => true,
-    //            'message' => 'User updated successfully',
-    //            'data' => $user
-
-    //        ], 200);
-    //    }
-    //    } catch (\Throwable $th) {
-    //        return response([
-    //            'succes' => false,
-    //            'message' => 'User could not be update' . $th->getMessage()
-    //        ], 500);
-    //    }
-    //}
 
     public function updateUser(Request $request)
     {
@@ -117,7 +83,7 @@ class UserController extends Controller
             Log::error($th->getMessage());
             return response([
                 'success' => false,
-                'message' => 'Error al modificar los datos del jugador.'
+                'message' => 'Error al modificar los datos del jugador.' . $th->getMessage()
             ], 500);
         }
     }

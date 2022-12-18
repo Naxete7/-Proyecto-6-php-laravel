@@ -29,7 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::put('/update/{id}', [UserController::class, 'updateUser']);
 Route::get('/users', [UserController::class, 'getAllUsers']);
-Route::delete('/deleteUser', [UserController::class, 'deleteUser']);
+Route::delete('/deleteUser/{id}', [UserController::class, 'deleteUser']);
 
 //AUTH
 
@@ -60,3 +60,4 @@ Route::post('/message', [MessagesController::class, 'postMessage']);
 Route::put('/message/{id}', [MessagesController::class, 'updateMessage']);
 Route::delete('/message/{id}', [MessagesController::class, 'deleteMessage']);
 Route::get('/allMessages', [MessagesController::class, 'getAllMessages']);
+Route::get('/AllMessagesByPartiesId/{partiesId}', [MessagesController::class, 'AllMessagesByPartiesId']);

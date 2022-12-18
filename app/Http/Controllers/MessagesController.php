@@ -86,4 +86,43 @@ class MessagesController extends Controller
             ], 500);
         }
     }
+
+    public function getAllMessages()
+    {
+        try {
+            $message = Message::query()->get();
+            return response()->json([
+                'success' => true,
+                'message' => 'Messages retrieved',
+                'data' => $message
+            ]);
+        } catch (\Throwable $th) {
+          
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Could not retrieve messages'
+            ], 500);
+        }
+    }
+
+    public function AllMessagesByPartiesId($partiesId)
+    {
+        try {
+            $message = Message::where('partiesId', $partiesId)->get();
+            return response()->json([
+                'success' => true,
+                'message' => 'Messages retrieved',
+                'data' => $message
+            ]);
+        } catch (\Throwable $th) {
+
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Could not retrieve messages'
+            ], 500);
+        }
+    }
+
 }
