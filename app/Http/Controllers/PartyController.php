@@ -22,13 +22,13 @@ try{
             //$party->users()->attach($userId);
             return response([
                 'success' => true,
-                'message' => 'Has entrado al chat correctamente.'
+                'message' => 'You have entered the chat successfully.'
             ], 200);
 }catch (\Throwable $th){
 
             return response([
                 'success' => false,
-                'message' => 'No has podido acceder al chat.' . $th->getMessage()
+                'message' => 'You could not access the chat.' . $th->getMessage()
             ], 500);
 }
 
@@ -50,13 +50,13 @@ try{
 
             return response([
                 'success' => true,
-                'message' => 'Has salido del chat correctamente.'
+                'message' => 'You have successfully exited the chat.'
             ], 200);
         } catch (\Throwable $th) {
            
             return response([
                 'success' => false,
-                'message' => 'No has podido salir del chat.'  . $th->getMessage()
+                'message' => 'You could noy get out of the chat'  . $th->getMessage()
             ], 500);
         }
 
