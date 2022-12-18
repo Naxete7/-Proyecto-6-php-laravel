@@ -39,8 +39,6 @@ Route::group([
     Route::get('/me',[AuthController::class, 'profile']);
 });
 
-
-
 //GAME
 
 Route::post('/game', [GameController::class, 'createAGame']);
@@ -57,7 +55,6 @@ Route::post('/exitParty', [PartyController::class, 'exitParty']);
 
 
 //MESSAGES
-
 
 Route::post('/message', [MessagesController::class, 'postMessage']);
 Route::put('/message/{id}', [MessagesController::class, 'updateMessage']);

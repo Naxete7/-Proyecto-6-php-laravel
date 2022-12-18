@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Message;
-use App\Models\Party;
-use App\Models\User;
+
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
+
 
 class MessagesController extends Controller
 {

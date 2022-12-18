@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Game;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
+
 
 class GameController extends Controller
 {
@@ -101,40 +101,6 @@ class GameController extends Controller
 
         }
 
-    //public function updatedGame(Request $request)
-    //{
-    //    try {
-    //        $userId = auth()->user()->id;
-
-    //        $validator = Validator::make($request->all(), [
-    //            'name' => 'required|max:255',
-
-    //        ]);
-
-    //        if ($validator->fails()) {
-    //            return response([
-    //                'success' => false,
-    //                'message' => $validator->messages()
-    //            ], 400);
-    //        }
-
-    //        $game = Game::find($userId);
-    //        $game->name = $request->input('name');
-
-    //        $game->save();
-
-    //        return response([
-    //            'success' => true,
-    //            'message' => 'Datos del juego modificados correctamente.'
-    //        ], 200);
-    //    } catch (\Throwable $th) {
-    //        Log::error($th->getMessage());
-    //        return response([
-    //            'success' => false,
-    //            'message' => 'Error al modificar el juego.' . $th->getMessage()
-    //        ], 500);
-    //    }
-    //}
 
     public function deleteGameByName($name)
     {

@@ -7,12 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
 use Tymon\JWTAuth\Facades\JWTAuth;
-use Tymon\JWTAuth\Contracts\Providers\Auth;
-
 
 class AuthController extends Controller
 {
-
 
     public function register(Request $request)
     {
