@@ -1,15 +1,10 @@
-
-
-<h1>PROYECTO 6 PHP LARAVEL</h1>
-
-
 <!-- Status -->
 
- <h4 align="center"> 
+ <h1 align="center"> 
 	🚧  Reto Api Laravel 🚀 
-</h4> 
+</h1> 
 
-<hr> -->
+<hr> 
 
 <p align="center">
   <a href="#dart-about">About</a> &#xa0; | &#xa0; 
