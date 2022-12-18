@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Party;
 use Illuminate\Http\Request;
-
 class PartyController extends Controller
 {
     
 public function createParty(Request $request){
 
 try{ 
-    $userid=auth()->user()->id;
+  
 
     $party=Party::create([
 
@@ -19,7 +18,7 @@ try{
         'gameId'=>$request->get('gameId'),
 
     ]);
-            //$party->users()->attach($userId);
+           
             return response([
                 'success' => true,
                 'message' => 'You have entered the chat successfully.'
@@ -46,7 +45,6 @@ try{
                 
             ]);
 
-            //$party->users()->attach($userId);
 
             return response([
                 'success' => true,

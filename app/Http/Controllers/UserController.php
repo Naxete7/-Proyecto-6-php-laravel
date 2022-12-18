@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Tymon\JWTAuth\Facades\JWTAuth;
+
 
 class UserController extends Controller
 {
@@ -77,13 +76,13 @@ class UserController extends Controller
 
             return response([
                 'success' => true,
-                'message' => 'Datos del jugador modificados correctamente.'
+                'message' => 'Player data modified correctly.'
             ], 200);
         } catch (\Throwable $th) {
             Log::error($th->getMessage());
             return response([
                 'success' => false,
-                'message' => 'Error al modificar los datos del jugador.' . $th->getMessage()
+                'message' => 'Error when modifying player data' . $th->getMessage()
             ], 500);
         }
     }
