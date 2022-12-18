@@ -93,10 +93,22 @@ Una vez probados todos los endpoints ya tenemos un backend funcional, para la ap
 
 ## //USER
 Route::post('/register', [AuthController::class, 'register']); (Registro)
+(Pasaremos por el body el siguiente JSON { ejemplo:
+"name": "Olivia",
+"email": "olivia@olivia.com",
+"password":"olivia12345"
+
+})
 <br>
 Route::post('/login', [AuthController::class, 'login']); (Login)
+(Pasaremos por el body el siguiente JSON { ejemplo:
+"email": "olivia@olivia.com",
+"password":"olivia12345"
+})
 <br>
+
 Route::post('/logout', [AuthController::class, 'logout']); (Logout)
+(para hacer el Logout correctamente tendremos que pasar el TOKKEN)
 <br>
 Route::put('/update/{id}', [UserController::class, 'updateUser']); (Modificar usuario)
 <br>
@@ -115,8 +127,14 @@ Route::group([
 ## //GAME
 
 Route::post('/game', [GameController::class, 'createAGame']); (Crear juego)
+(Pasaremos por el body {
+"name":"Dragon ball Z"
+})
 <br>
 Route::put('/updatedGame/{id}', [GameController::class, 'updatedGame']); (Modificar Juego)
+(Pasaremos por el body el nuevo nombre del juego {
+"name":"Dragon ball final bout"
+})
 <br>
 Route::delete('/game/{name}', [GameController::class, 'deleteGameByName']); (Borrar Juego)
 <br>
@@ -128,6 +146,10 @@ Route::get('/game/name/{name}', [GameController::class, 'getGameByName']); (Enco
  ## //PARTY
 
 Route::post('/party', [PartyController::class, 'createPArty']); (Crear Party)
+(Pasaremos por el body, ej({
+"title":"regates",
+"gameId":2
+}))
 <br>
 Route::post('/exitParty', [PartyController::class, 'exitParty']); (Salir de la Party)
 <br>
@@ -136,12 +158,22 @@ Route::post('/exitParty', [PartyController::class, 'exitParty']); (Salir de la P
 ## //MESSAGES
 
 Route::post('/message', [MessagesController::class, 'postMessage']); (Crear Mensaje)
+(Pasaremos por el body, ej({
+"message":"Siguiente partida vale doble",
+"partiesId":2
+}))
 <br>
 Route::put('/message/{id}', [MessagesController::class, 'updateMessage']); (Modificar Mensaje)
+(Pasaremos por el body, ej({
+"message":"Siguiente partida vale doble",
+"partiesId":2
+}))
 <br>
 Route::delete('/message/{id}', [MessagesController::class, 'deleteMessage']); (Borrar Mensaje)
 <br>
 Route::get('/allMessages', [MessagesController::class, 'getAllMessages']); (Obtener todos los Mensajes)
+<br>
+Route::get('/AllMessagesByPartiesId/{partiesId}', [MessagesController::class, 'AllMessagesByPartiesId']);
 
 ## :memo: License ##
 
