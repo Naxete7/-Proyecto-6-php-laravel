@@ -114,7 +114,7 @@ Route::put('/update/{id}', [UserController::class, 'updateUser']); (Modificar us
 <br>
 Route::get('/users', [UserController::class, 'getAllUsers']); (Obtener todos los usuarios)
 <br>
-Route::delete('/deleteUser', [UserController::class, 'deleteUser']); (Borrar usuario)
+Route::delete('/deleteUser', [UserController::class, 'deleteUser']); (Borrar usuario, el usuario no podra ser eliminado si tiene mensajes en alguna party)
 
 ## //AUTH (comprobar que el usuario tiene Token y puede entrar en la app)
 
