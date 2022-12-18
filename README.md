@@ -46,53 +46,37 @@
 
 ## :dart: About ##
 
-Describe your project
-
-## :sparkles: Features ##
-
-:heavy_check_mark: Feature 1;\
-:heavy_check_mark: Feature 2;\
-:heavy_check_mark: Feature 3;
+En este proyecto hemos realizado la parte backend de una aplicación, para jugar, crear partidas, y chats entre compañeros, con php Laravel
 
 ## :rocket: Technologies ##
 
-The following tools were used in this project:
+Las tecnologias realizadas para este proyecto han sido:
 
-- [Expo](https://expo.io/)
-- [Node.js](https://nodejs.org/en/)
-- [React](https://pt-br.reactjs.org/)
-- [React Native](https://reactnative.dev/)
-- [TypeScript](https://www.typescriptlang.org/)
+- [PHP]
+- [Laravel]
+
 
 ## :white_check_mark: Requirements ##
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+Antes de comenzar :checkered_flag:, se necesita instalar el composer. Composer es un manejador de
+paquetes para PHP que proporciona un
+estándar para administrar, descargar e
+instalar dependencias y librerías. .
 
 ## :checkered_flag: Starting ##
 
 ```bash
-# Clone this project
-$ git clone https://github.com/{{YOUR_GITHUB_USERNAME}}/reto-api-laravel
+# Instalar laravel
+$ composer global require laravel/installer
 
-# Access
-$ cd reto-api-laravel
+# Crear nuevo proyecto
+$composer create-project laravel/laravel Proyecto-6-php.laravel
 
-# Install dependencies
-$ yarn
+# Lanzar el servidor
+$ php artisan serve (lo tendremos levantado en localhost:8000)
 
-# Run the project
-$ yarn start
-
-# The server will initialize in the <http://localhost:3000>
 ```
 
 ## :memo: License ##
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-
-Made with :heart: by <a href="https://github.com/{{YOUR_GITHUB_USERNAME}}" target="_blank">{{YOUR_NAME}}</a>
-
-&#xa0;
-
-<a href="#top">Back to top</a>
+Este proyecto ha sido realizado por <a href="https://github.com/Naxete7">Ignacio Garcia Valero.</a>
