@@ -77,6 +77,85 @@ $ php artisan serve (lo tendremos levantado en localhost:8000)
 
 ```
 
+## 📝 Description ##
+
+En este sexto proyecto del bootcamp hemos realizado la parte de backend de una aplicación de juegos, donde los participantes pueden crear salas (chats) para mandar mensajes y comunicarse con sus compañeros.
+
+El proyecto se realizó con php Laravel, y en primer lugar realizamos creamos las migraciones donde iran todos los datos de nuestra base de datos.
+
+![migraciones](https://user-images.githubusercontent.com/109297564/208314299-f930ada7-b7bb-448a-b625-48eb18d43ded.jpg)
+
+Una vez creadas todas las tablas, realizaremos las migraciones. Una vez creadas las migraciones añadiremos los items que vamos a necesitar en cada tabla, y también añadiremos las relaciones entre las tablas.
+
+![Captura de pantalla 2022-12-18 115955](https://user-images.githubusercontent.com/109297564/208314320-aa0b7bc0-5f51-4d5f-915d-b787f3de01c1.jpg)
+
+Así quedaria nuestras tablas relacionadas .
+Indicar que para poder crear las relaciones también hemos tenido que crear los modelos de las tablas, ya que ahi indicaremos la relación existente.
+
+![models](https://user-images.githubusercontent.com/109297564/208314898-3221041d-acae-41b6-95e4-217491d12d78.jpg)
+
+A continuacion y para empezar con los endpoints añadiremos las rutas necesarias para cada uno de los endpoints necesarios para que la aplicación sea totalmente funcional.
+
+Estas routas iran en el archivo api.php que se encuentra alojado en la carpeta routes.
+
+![Captura de pantalla 2022-12-18 195915](https://user-images.githubusercontent.com/109297564/208314487-94b20ec1-dab5-4bf7-9a5d-d81260129562.jpg)
+
+Y para poder darle funcionaludad a cada una de estas rutas, crearemos los controllers, donde crearemos toda la lógica para poder obtener todos los endpoints
+
+![controllers](https://user-images.githubusercontent.com/109297564/208314589-2c7e3ef7-60e9-4b35-b01e-a0e224ba4dfd.jpg)
+Como vemos en la imagen los  controllers se encuentran en la carpeta HTTP, que estará ubicada dentro de app.
+
+
+![authcontroller](https://user-images.githubusercontent.com/109297564/208314685-794f1de3-cac4-4665-a72a-10269f4e3aaf.jpg)
+
+En la imagen de arriba dejamos un ejemplo de controller. En este caso es el AuthController que es el encargado de realizar el registro(enla imagen) el login, y la autenticacón de cada usuario cada vez que entre en la app.
+
+![register](https://user-images.githubusercontent.com/109297564/208314735-2ed52aea-b192-4923-befb-8685969319f3.jpg)
+Para comprpobar la buena funcionalidad del endpoint, entramos en la aplicacion Postman, y probamos la ruta indicada para el registro de usuarios.
+
+
+Una vez probados todos los endpoints ya tenemos un backend funcional, para la aplicación.
+
+## ENDPOINTS ##
+
+//USER
+Route::post('/register', [AuthController::class, 'register']); (Registro)
+Route::post('/login', [AuthController::class, 'login']); (Login)
+Route::post('/logout', [AuthController::class, 'logout']); (Logout)
+Route::put('/update/{id}', [UserController::class, 'updateUser']); (Modificar usuario)
+Route::get('/users', [UserController::class, 'getAllUsers']); (Obtener todos los usuarios)
+Route::delete('/deleteUser', [UserController::class, 'deleteUser']); (Borrar usuario)
+
+//AUTH (comprobar que el usuario tiene Token y puede entrar en la app)
+
+Route::group([
+    'middleware'=>'jwt.auth'
+], function(){
+    Route::get('/me',[AuthController::class, 'profile']);
+});
+
+//GAME
+
+Route::post('/game', [GameController::class, 'createAGame']); (Crear juego)
+Route::put('/updatedGame/{id}', [GameController::class, 'updatedGame']); (Modificar Juego)
+Route::delete('/game/{name}', [GameController::class, 'deleteGameByName']); (Borrar Juego)
+Route::get('/games', [GameController::class, 'getAllGames']); (Obtener todos los juegos)
+Route::get('/game/name/{name}', [GameController::class, 'getGameByName']); (Encontrar juegos por nombre)
+
+
+//PARTY
+
+Route::post('/party', [PartyController::class, 'createPArty']); (Crear Party)
+Route::post('/exitParty', [PartyController::class, 'exitParty']); (Salir de la PArty)
+
+
+//MESSAGES
+
+Route::post('/message', [MessagesController::class, 'postMessage']); (Crear Mensaje)
+Route::put('/message/{id}', [MessagesController::class, 'updateMessage']); (Modificar Mensaje)
+Route::delete('/message/{id}', [MessagesController::class, 'deleteMessage']); (Borrar Mensaje)
+Route::get('/allMessages', [MessagesController::class, 'getAllMessages']); (Obtener todos los Mensajes)
+
 ## :memo: License ##
 
 Este proyecto ha sido realizado por <a href="https://github.com/Naxete7">Ignacio Garcia Valero.</a>
