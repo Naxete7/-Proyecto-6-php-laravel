@@ -118,15 +118,20 @@ Una vez probados todos los endpoints ya tenemos un backend funcional, para la ap
 
 ## ENDPOINTS ##
 
-//USER
+## //USER
 Route::post('/register', [AuthController::class, 'register']); (Registro)
+<br>
 Route::post('/login', [AuthController::class, 'login']); (Login)
+<br>
 Route::post('/logout', [AuthController::class, 'logout']); (Logout)
+<br>
 Route::put('/update/{id}', [UserController::class, 'updateUser']); (Modificar usuario)
+<br>
 Route::get('/users', [UserController::class, 'getAllUsers']); (Obtener todos los usuarios)
+<br>
 Route::delete('/deleteUser', [UserController::class, 'deleteUser']); (Borrar usuario)
 
-//AUTH (comprobar que el usuario tiene Token y puede entrar en la app)
+## //AUTH (comprobar que el usuario tiene Token y puede entrar en la app)
 
 Route::group([
     'middleware'=>'jwt.auth'
@@ -134,26 +139,35 @@ Route::group([
     Route::get('/me',[AuthController::class, 'profile']);
 });
 
-//GAME
+## //GAME
 
 Route::post('/game', [GameController::class, 'createAGame']); (Crear juego)
+<br>
 Route::put('/updatedGame/{id}', [GameController::class, 'updatedGame']); (Modificar Juego)
+<br>
 Route::delete('/game/{name}', [GameController::class, 'deleteGameByName']); (Borrar Juego)
+<br>
 Route::get('/games', [GameController::class, 'getAllGames']); (Obtener todos los juegos)
+<br>
 Route::get('/game/name/{name}', [GameController::class, 'getGameByName']); (Encontrar juegos por nombre)
 
 
-//PARTY
+ ## //PARTY
 
 Route::post('/party', [PartyController::class, 'createPArty']); (Crear Party)
-Route::post('/exitParty', [PartyController::class, 'exitParty']); (Salir de la PArty)
+<br>
+Route::post('/exitParty', [PartyController::class, 'exitParty']); (Salir de la Party)
+<br>
 
 
-//MESSAGES
+## //MESSAGES
 
 Route::post('/message', [MessagesController::class, 'postMessage']); (Crear Mensaje)
+<br>
 Route::put('/message/{id}', [MessagesController::class, 'updateMessage']); (Modificar Mensaje)
+<br>
 Route::delete('/message/{id}', [MessagesController::class, 'deleteMessage']); (Borrar Mensaje)
+<br>
 Route::get('/allMessages', [MessagesController::class, 'getAllMessages']); (Obtener todos los Mensajes)
 
 ## :memo: License ##
