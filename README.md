@@ -21,6 +21,15 @@
 
 En este proyecto hemos realizado la parte backend de una aplicación, para jugar, crear partidas, y chats entre compañeros, con php Laravel
 
+La base datos la tenemos desplegada en railway, para poder acceder a ella hay que modificar el archivo .env
+Las variables son las siguientes:
+
+DB_CONNECTION=mysql
+DB_HOST=containers-us-west-171.railway.app
+DB_PORT=7836
+DB_DATABASE=railway
+DB_USERNAME=root
+DB_PASSWORD=2ZtrukMEb7aTJqQt3ps5
 ## :rocket: Technologies ##
 
 Las tecnologias realizadas para este proyecto han sido:
